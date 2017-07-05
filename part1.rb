@@ -12,7 +12,7 @@ class BankAccount
     @balance
   end
 
-  # def balance=(balance)
+  # def bal_new(balance)
   #   @balance = balance
   # end
 
