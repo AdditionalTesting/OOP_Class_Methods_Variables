@@ -24,17 +24,24 @@ class Zombie
   end
 
   def encounter
-    random = rand(2)
+    random = rand(3)
     if random == 0
+      outrun_zombie?
+    elsif random == 1
+      survive_attack?
+    elsif random == 2
+      @@horde << Zombie.new(rand(@@max_speed + 1), rand(@@max_strength + 1))
+      puts "you zombie now"
+    end
 
   end
 
   def outrun_zombie?
     how_fast = rand(0..@@max_speed)
     if how_fast > self.speed
-      return true
+      puts "you outran zombie"
     else
-      return false
+      puts "you didnt outrun zombie"
     end
 
   end
@@ -42,9 +49,9 @@ class Zombie
   def survive_attack?
     how_strong = rand(0..@@max_strength)
     if how_strong > self.strength
-      return true
+      puts "You beat zombie"
     else
-      return false
+      puts "you zombie now"
     end
 
   end
